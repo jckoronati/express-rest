@@ -10,6 +10,12 @@ class BooksController {
 
         return result;
     }
+
+    async create(body) {
+        const result = await this.repository.create(body);
+
+        return result;
+    }
 }
 
 export { BooksController };

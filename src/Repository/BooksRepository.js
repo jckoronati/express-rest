@@ -6,6 +6,16 @@ class BooksRepository {
 
         return result;
     }
+
+    async create(body) {
+        let book = new books(body);
+
+        book.save((error) => {
+            throw new Error(`An error has occurred: ${error} \n Object passed: ${body}`);
+        });
+
+        return true;
+    }
 }
 
 export { BooksRepository };
