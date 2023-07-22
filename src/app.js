@@ -1,11 +1,7 @@
 import express from 'express';
+import { getBooks, pushBooks } from './Repository/books.repository.js';
 
 const app = express();
-
-const books = [
-    { id: 1, title: 'A arte da guerra', author: 'Sun Tzu' },
-    { id: 2, title: 'Coraline', author: 'Neil Gaiman' },
-];
 
 app.use(express.json());
 
@@ -14,13 +10,19 @@ app.get('/', (req, res) => {
 });
 
 app.get('/books', (req, res) => {
+    const books = getBooks();
+
     res.status(200).json(books);
 });
 
 app.post('/books', (req, res) => { 
-    books.push(req.body);
+    pushBooks(req.body);
 
     res.status(201).send('The book was successfully registered');
 });
+
+app.put('/books/:id', (req, res) => { 
+
+ });
 
 export default app;
