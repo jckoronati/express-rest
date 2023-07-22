@@ -1,6 +1,12 @@
 import express from 'express';
 
-import { connectionDataBaseHelper } from './Config/Database/Conect.js';
+import { dbHelper } from './Config/Database/Conect.js';
+
+dbHelper.on('error', console.log.bind(console, 'Connection error'));
+
+dbHelper.once("open", () => {
+    console.log("DataBase connected successfully ...");
+});
 
 import { deleteById, findById, getBooks, pushBooks, updateById } from './Repository/books.repository.js';
 
