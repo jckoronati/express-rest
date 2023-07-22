@@ -6,7 +6,7 @@ class BooksController {
     }
 
     async getAll() {
-        const result = await repository.findAll();
+        const result = await this.repository.findAll();
 
         return result;
     }
