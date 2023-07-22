@@ -1,5 +1,5 @@
 import express from 'express';
-import { getBooks, pushBooks } from './Repository/books.repository.js';
+import { findById, getBooks, pushBooks, updateById } from './Repository/books.repository.js';
 
 const app = express();
 
@@ -21,8 +21,21 @@ app.post('/books', (req, res) => {
     res.status(201).send('The book was successfully registered');
 });
 
-app.put('/books/:id', (req, res) => { 
+app.get('/books/:id', (req, res) => {
+    const book = findById(req.params.id);
 
- });
+    // dumb but necessary
+    const books = getBooks();
+
+    res.status(200).json(books[book]);
+});
+
+app.put('/books/:id', (req, res) => { 
+    updateById(req.params.id, req.body);
+
+    const books = getBooks();
+
+    res.status(200).json(books);
+});
 
 export default app;
