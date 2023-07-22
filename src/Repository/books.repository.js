@@ -32,10 +32,25 @@ const findById = (id) => {
 const updateById = (id, body) => { 
     const book = findById(id);   
 
-    console.log(books[book]);
-
     books[book].title = body.title;
     books[book].author = body.author;    
 };
 
-export { getBooks, pushBooks, findById, updateById };
+/** @param {number} id */
+const deleteById = (id) => {
+    const lengthBeforeDeleted = books.length;
+
+    const book = findById(id);
+
+    if (books[book] !== undefined)
+        books.splice(book, 1);
+
+    const lengthAfterDeleted = books.length;
+
+    if (lengthAfterDeleted !== lengthBeforeDeleted)
+        return true;
+
+    return false;
+};
+
+export { getBooks, pushBooks, findById, updateById, deleteById };

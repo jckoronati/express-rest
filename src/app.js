@@ -1,5 +1,5 @@
 import express from 'express';
-import { findById, getBooks, pushBooks, updateById } from './Repository/books.repository.js';
+import { deleteById, findById, getBooks, pushBooks, updateById } from './Repository/books.repository.js';
 
 const app = express();
 
@@ -36,6 +36,18 @@ app.put('/books/:id', (req, res) => {
     const books = getBooks();
 
     res.status(200).json(books);
+});
+
+app.delete('/books/:id', (req, res) => {
+    const result = deleteById(req.params.id);
+
+    const books = getBooks();
+
+    if (result) {
+        res.status(200).json(books);
+    } else {
+        res.status(404).send('The document already been deleted.');    
+    }
 });
 
 export default app;
