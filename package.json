@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/jckoronati/express-rest/issues"
   },
-  "homepage": "https://github.com/jckoronati/express-rest#readme"
+  "homepage": "https://github.com/jckoronati/express-rest#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
