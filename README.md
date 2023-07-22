@@ -1,3 +1,7 @@
 ## Node.JS API
 
-command to run server `node server.js`
+## Start
+
+To run project follow the sequence of commands:
+
+- Server: `npm run dev`
