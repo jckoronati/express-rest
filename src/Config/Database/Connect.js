@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-console.log(process.env.DATABASE_CONNECTION);
+console.log(process.env.MONGO_CONNECTION);
 
-mongoose.connect(process.env.DATABASE_CONNECTION);
+mongoose.connect(process.env.MONGO_CONNECTION);
 
 let dbHelper = mongoose.connection;
 

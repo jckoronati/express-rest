@@ -1,3 +1,5 @@
+import 'dotenv/config.js'; // configure dotenv
+
 import express from 'express';
 import { router } from './Routes/index.js';
 import { dbHelper } from './Config/Database/Connect.js';
