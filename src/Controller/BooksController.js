@@ -36,6 +36,12 @@ class BooksController {
 
         return result;
     }
+    
+    async delete(id) {
+        const result = await this.repository.delete(id);
+
+        return result;
+    }
 }
 
 export { BooksController };

@@ -24,15 +24,30 @@ class BooksRepository {
     }
 
     async update(id, body) {
-        await books.findByIdAndUpdate(id, {$set: body}, (error) => {
+        result = false;
+
+        result = await books.findByIdAndUpdate(id, { $set: body }, (error) => {
             if (error)
                 throw new Error(`An error has ocurred: \n ${error} \n ID: 
                     ${id} \n Object passed: ${body} \n`);
             else
-                return true;                    
+                return true;
         });
 
-        return false;
+        return result;
+    }
+
+    async delete(id) {
+        const result = false;
+
+        result = await books.findByIdAndDelete(id, (error) => {
+            if (error)
+                throw new Error(`An error has ocurred: \n ${error} \n ID: ${id} \n`);
+            else
+                return true;
+        });
+
+        return result;
     }
 }
 

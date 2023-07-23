@@ -56,4 +56,19 @@ booksRouter.get('/:id', async (req, res) => {
     }
 });
 
+booksRouter.delete('/:id', async (req, res) => {
+    try {
+        const result = await booksController.delete(req.params.id);
+
+        if (result)
+            res.status(201).send("Book was deleted successfully!");
+        else
+            res.status(404).send("Sorry, book was not found and therefore is not deleted");            
+    } catch (error) {
+        console.log(error);
+
+        res.status(500).send("Something went wrong, try again later!");
+    }
+});
+
 export { booksRouter };
