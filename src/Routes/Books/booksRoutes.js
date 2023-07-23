@@ -22,7 +22,7 @@ booksRouter.post('/', async (req, res) => {
     } catch (error) {
         console.error(error);
 
-        res.status(500).send("Something went wrong, try again later!")
+        res.status(500).send("Something went wrong, try again later!");
     }
 });
 
