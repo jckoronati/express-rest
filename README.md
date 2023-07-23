@@ -7,3 +7,5 @@ It's a simple project created to improve NODE JS skills.
 To run project follow the sequence of commands:
 
 - Server: `npm run dev`
+
+Made with love ❤️
