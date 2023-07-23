@@ -16,6 +16,24 @@ class BooksRepository {
 
         return true;
     }
+
+    async findById(id) {
+        const result = await books.findById(id);
+
+        return result;
+    }
+
+    async update(id, body) {
+        await books.findByIdAndUpdate(id, {$set: body}, (error) => {
+            if (error)
+                throw new Error(`An error has ocurred: \n ${error} \n ID: 
+                    ${id} \n Object passed: ${body} \n`);
+            else
+                return true;                    
+        });
+
+        return false;
+    }
 }
 
 export { BooksRepository };

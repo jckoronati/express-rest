@@ -5,6 +5,13 @@ class BooksController {
         this.repository = new BooksRepository();
     }
 
+    /** @param {String} id */
+    async getById(id) {
+        const book = await this.repository.findById(id);
+
+        return book;
+    }
+
     async getAll() {
         const result = await this.repository.findAll();
 
@@ -13,6 +20,16 @@ class BooksController {
 
     async create(body) {
         const result = await this.repository.create(body);
+
+        return result;
+    }
+
+    /** 
+     * @param {String} id 
+     * @param {JSON} body
+     **/
+    async update(id, body) {                
+        const result = await this.repository.update(id, body);
 
         return result;
     }
