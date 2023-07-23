@@ -11,7 +11,7 @@ class BooksRepository {
         let book = new books(body);
 
         book.save((error) => {
-            throw new Error(`An error has occurred: ${error} \n Object passed: ${body}`);
+            throw new Error(`An error has occurred: \n ${error} \n Object passed: ${body}`);
         });
 
         return true;
