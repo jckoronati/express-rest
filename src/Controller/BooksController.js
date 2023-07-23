@@ -9,7 +9,10 @@ class BooksController {
     async getById(id) {
         const book = await this.repository.findById(id);
 
-        return book;
+        if (book)
+            return book;
+
+        return null;
     }
 
     async getAll() {

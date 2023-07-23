@@ -41,4 +41,19 @@ booksRouter.put('/:id', async (req, res) => {
     }    
 });
 
+booksRouter.get('/:id', async (req, res) => {
+    try {
+        const result = await booksController.getById(req.params.id);
+
+        if (result)
+            res.status(200).json(result);
+        else
+            res.status(404).send('Sorry, book was not found.');            
+    } catch (error) {
+        console.log(error);
+
+        res.status(500).send("Something went wrong, try again later!");
+    }
+});
+
 export { booksRouter };
