@@ -1,15 +1,12 @@
 import { Router } from "express";
 import { BooksController } from "../../Controller/BooksController.js";
+import { getAll } from "../Middleware/booksHandle.js";
 
 const booksRouter = Router();
 
 const booksController = new BooksController();
 
-booksRouter.get("/", async (req, res) => {
-    const result = await booksController.getAll();
-
-    res.status(200).json(result);
-});
+booksRouter.get("/", getAll);
 
 booksRouter.post("/", async (req, res) => {
     try {
