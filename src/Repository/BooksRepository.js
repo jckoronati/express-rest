@@ -26,13 +26,7 @@ class BooksRepository {
     async update(id, body) {
         let result = false;
 
-        result = await books.findOneAndUpdate(id, { $set: body }, (error) => {
-            if (error)
-                throw new Error(`An error has ocurred: \n ${error} \n ID: 
-                    ${id} \n Object passed: ${body} \n`);
-            else
-                return true;
-        });
+        result = await books.findOneAndUpdate(id, { $set: body });
 
         return result;
     }
@@ -40,12 +34,7 @@ class BooksRepository {
     async delete(id) {
         let result = false;
 
-        result = await books.findByIdAndDelete(id, (error) => {
-            if (error)
-                throw new Error(`An error has ocurred: \n ${error} \n ID: ${id} \n`);
-            else
-                return true;
-        });
+        result = await books.findByIdAndDelete(id);
 
         return result;
     }
