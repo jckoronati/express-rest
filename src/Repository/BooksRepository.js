@@ -10,9 +10,7 @@ class BooksRepository {
     async create(body) {
         let book = new books(body);
 
-        book.save((error) => {
-            throw new Error(`An error has occurred: \n ${error} \n Object passed: ${body}`);
-        });
+        book.save();
 
         return true;
     }
