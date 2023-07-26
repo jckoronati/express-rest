@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/jckoronati/express-rest#readme",
   "devDependencies": {
+    "eslint": "^8.45.0",
     "nodemon": "^3.0.1"
   },
   "dependencies": {
