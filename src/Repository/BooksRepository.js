@@ -10,7 +10,7 @@ class BooksRepository {
     async create(body) {
         let book = new books(body);
 
-        book.save();
+        await book.save();
 
         return true;
     }
