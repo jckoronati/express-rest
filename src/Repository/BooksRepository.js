@@ -24,9 +24,9 @@ class BooksRepository {
     }
 
     async update(id, body) {
-        result = false;
+        let result = false;
 
-        result = await books.findByIdAndUpdate(id, { $set: body }, (error) => {
+        result = await books.findOneAndUpdate(id, { $set: body }, (error) => {
             if (error)
                 throw new Error(`An error has ocurred: \n ${error} \n ID: 
                     ${id} \n Object passed: ${body} \n`);
@@ -38,7 +38,7 @@ class BooksRepository {
     }
 
     async delete(id) {
-        const result = false;
+        let result = false;
 
         result = await books.findByIdAndDelete(id, (error) => {
             if (error)
