@@ -16,9 +16,9 @@ booksRouter.post('/', async (req, res) => {
         const result = await booksController.create(req.body);
 
         if (result)
-            res.status(201).send('Book was signed with success!');
+            res.status(201).send('Book was registered with success!');
         else
-            res.status(400).send('Sorry, but the book was not signed, try again later!');
+            res.status(400).send('Sorry, but the book was not registered.');
     } catch (error) {
         console.error(error);
 
@@ -35,7 +35,7 @@ booksRouter.put('/:id', async (req, res) => {
         else
             res.status(400).send('Sorry, but the book was not updated, try again later!');
     } catch (error) {
-        console.log(error);
+        console.error(error);
 
         res.status(500).send("Something went wrong, try again later!");
     }    
@@ -50,7 +50,7 @@ booksRouter.get('/:id', async (req, res) => {
         else
             res.status(404).send('Sorry, book was not found.');            
     } catch (error) {
-        console.log(error);
+        console.error(error);
 
         res.status(500).send("Something went wrong, try again later!");
     }
@@ -63,9 +63,9 @@ booksRouter.delete('/:id', async (req, res) => {
         if (result)
             res.status(201).send("Book was deleted successfully!");
         else
-            res.status(404).send("Sorry, book was not found and therefore is not deleted");            
+            res.status(404).send("Sorry, book was not found.");    
     } catch (error) {
-        console.log(error);
+        console.error(error);
 
         res.status(500).send("Something went wrong, try again later!");
     }
