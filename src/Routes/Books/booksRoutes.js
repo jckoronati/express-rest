@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { BooksController } from "../../Controller/BooksController.js";
-import { getAll } from "../Middleware/booksHandle.js";
+import { getAll } from "../Handle/booksHandle.js";
+import { isAValidId } from "../Middleware/booksMiddleware.js";
 
 const booksRouter = Router();
 
@@ -23,7 +24,7 @@ booksRouter.post("/", async (req, res) => {
     }
 });
 
-booksRouter.put("/:id", async (req, res) => { 
+booksRouter.put("/:id", isAValidId, async (req, res) => { 
     try {
         const result = await booksController.update(req.params.id, req.body);   
 
@@ -38,7 +39,7 @@ booksRouter.put("/:id", async (req, res) => {
     }    
 });
 
-booksRouter.get("/:id", async (req, res) => {
+booksRouter.get("/:id", isAValidId, async (req, res) => {
     try {
         const result = await booksController.getById(req.params.id);
 
