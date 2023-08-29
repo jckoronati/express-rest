@@ -6,6 +6,6 @@ const authorSchema = new mongoose.Schema({
     language: { type: String, required: true },
 });
 
-const authors = mongoose.model("authors", authorSchema);
+const Authors = mongoose.model("authors", authorSchema);
 
-export { authors };
+export { Authors };
